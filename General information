@@ -1,0 +1,7 @@
+In general we can break down Ml into subcatagories such as:
+-supervised learning
+-unsupervised learning
+-semi-suervised learnig
+-reinforcment learning
+-deep learnig
+In this repository i would like to implement the most important algorithms 
