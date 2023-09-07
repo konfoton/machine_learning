@@ -1,7 +1,7 @@
 My implemented algorithms (✔️, ❌): 
 -multiple linear regression ✔️
 -logistic regression ✔️
--neural network ❌
+-neural network ✔️
 -KNN ❌
 -SVM ❌
 -K-means ❌
@@ -9,4 +9,5 @@ My implemented algorithms (✔️, ❌):
 -random forest ❌
 -naive Bayes Algorithm ❌
 Used libraries:
--numpy 
+-numpy
+-tensorflow
