@@ -1,0 +1,55 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import random
+import math
+#short KNN implementation
+data1 = [[[random.randint(1, 10), random.randint(1, 10)], 1] for x in range(20)]
+data2 = [[[random.randint(10, 20), random.randint(10, 20)], 0] for x in range(20)]
+def func(data):
+    x = []
+    y = []
+    for example in data:
+        x.append(example[0][0])
+        y.append(example[0][1])
+    return [x, y]
+single = [4,6]
+plt.scatter(func(data2)[0], func(data2)[1])
+plt.scatter(func(data1)[0], func(data1)[1])
+plt.scatter(4, 6)
+def sort(list):
+    if list:
+        pivot = list.pop()
+        gretear = []
+        lower = []
+        for element in list:
+            if element[0] >= pivot[0]:
+                gretear.append(element)
+            else:
+                lower.append(element)
+        return sort(lower) + [pivot] + sort(gretear)
+    return []
+def decide(data, neighbours):
+     a = []
+     for x in data1 + data2:
+         a.append([math.sqrt((data[0] - x[0][0]) ** 2 + (data[1] - x[0][1]) ** 2), x[1]])
+     a = sort(a)
+     counter1 = 0
+     counter0 = 0 
+     for x in range(neighbours):
+         if a[x][1] == 1:
+             counter1 +=1
+         else:
+             counter0 += 1
+     if counter1 > counter0:
+         return 1  
+     else:
+         return 0
+def func1(value):
+    return np.sqrt(3 ** 2 - (value - 4) ** 2) + 6
+def func2(value):
+    return -(np.sqrt(3 ** 2 - (value - 4) ** 2) + 6) + 12
+a = np.linspace(1, 7, 1000)
+plt.scatter(a, func1(a))
+plt.scatter(a, func2(a))
+plt.show()
+print(decide(single, 6))
